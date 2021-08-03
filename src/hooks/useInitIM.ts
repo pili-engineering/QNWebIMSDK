@@ -1,4 +1,3 @@
-import * as QNIM from 'qnweb-im';
 import { useContext, useEffect, useRef, useState } from 'react';
 import { storeContext } from '../store';
 
@@ -14,7 +13,7 @@ const useInitIM = () => {
     if (!state.im) {
       console.log('init');
       const initIM = QNIM.init({
-        appid: 'dxdjbunzmxiu',
+        appid: 'dxdjbunzmxiu'
       });
       setIsWatchIM(true);
       IM.current = initIM;
@@ -27,7 +26,7 @@ const useInitIM = () => {
         const im = IM.current;
         if (im && im.isReady && im.isReady()) {
           dispatch({
-            type: 'updateIM',
+            type: 'setIM',
             payload: im
           });
         }

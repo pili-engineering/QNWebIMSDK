@@ -1,35 +1,24 @@
-import React, { useEffect, useReducer } from 'react';
-
-interface StoreProps {
-
-}
-
-interface State {
-  im: any;
-}
-
-interface Action {
-  type: 'updateIM';
-  payload: any;
-}
-
-interface StoreContext {
-  state: State;
-  dispatch: (action: Action) => void;
-}
+import React, { useReducer } from 'react';
+import { Action, LoginStatus, State, StoreContext, StoreProps } from '../types/store';
 
 const defaultState = {
-  im: null
+  im: null,
+  loginStatus: LoginStatus.NotLogged
 };
 
 export const storeContext = React.createContext({} as StoreContext);
 
 function reducer(state: State, action: Action) {
   switch (action.type) {
-    case 'updateIM':
+    case 'setIM':
       return {
         ...state,
         im: action.payload
+      };
+    case 'setLogin':
+      return {
+        ...state,
+        loginStatus: action.payload
       };
   }
   return state;
