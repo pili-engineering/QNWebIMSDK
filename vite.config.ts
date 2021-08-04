@@ -1,6 +1,8 @@
 import { defineConfig } from 'vite';
 import reactRefresh from '@vitejs/plugin-react-refresh';
 
+const packageJson = require('./package.json');
+
 console.log('当前环境', process.env.NODE_ENV);
 
 // https://vitejs.dev/config/
@@ -11,5 +13,8 @@ export default defineConfig({
       '/v1': 'https://im-test.qiniuapi.com'
     }
   },
-  base: './'
+  base: './',
+  define: {
+    __VERSION__: JSON.stringify(packageJson.version)
+  }
 });

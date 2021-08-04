@@ -1,19 +1,22 @@
-import React, { useContext, useState } from 'react';
 import { Button, Input, message, Modal } from 'antd';
+import React, { useContext, useState } from 'react';
 import useMonitorLogin from '../../hooks/useMonitorLogin';
 import { storeContext } from '../../store';
-import * as QNIM from 'qnweb-im';
 import { LoginInfo } from '../../types';
+import { LoginStatus } from '../../types/store';
 import css from './index.module.scss';
 
 const Login: React.FC<{}> = props => {
 
-  const { state } = useContext(storeContext);
+  const demoVersion = __VERSION__;
+
+  const { state, dispatch } = useContext(storeContext);
   const [loginInfo, setLoginInfo] = useState<LoginInfo>({
     username: '',
     password: ''
   });
   const [status, setStatus] = useState(0); // 0-登录、1-注册
+  const [registerLoading, setRegisterLoading] = useState(false); // 注册 loading
   useMonitorLogin();
 
   /**
@@ -23,24 +26,31 @@ const Login: React.FC<{}> = props => {
     const { im } = state;
     const { username, password } = loginInfo;
     if (status === 0) { // 登录
+      dispatch({
+        type: 'setLogin',
+        payload: LoginStatus.Logging
+      });
       im.login({
         name: username,
         password
       });
     }
     if (status === 1) { // 注册
+      setRegisterLoading(true);
       im.rosterManage.asyncRegester({
         username,
         password
       }).then((response: any) => {
-        if (response.code == 200) {
-          message.success('注册成功');
-        }
+        console.log('rosterManage.asyncRegester', response);
+        message.success('注册成功');
       }).catch((error: any) => {
+        console.log('catch rosterManage.asyncRegester', error);
         Modal.error({
           title: '提示',
           content: JSON.stringify(error)
         });
+      }).finally(() => {
+        setRegisterLoading(false);
       });
     }
   };
@@ -91,11 +101,12 @@ const Login: React.FC<{}> = props => {
         block
         style={{ marginBottom: 10 }}
         onClick={onSubmitBtn}
+        loading={registerLoading || state.loginStatus === LoginStatus.Logging}
       >{status === 0 ? '登录' : '注册'}</Button>
       <div style={{ textAlign: 'center' }}>
         <Button type='link' onClick={onToggleStatus}>{status === 0 ? '点击去注册' : '已有账号，去登录'}</Button>
       </div>
-      <div className={css.version}>Demo version: 1.0.0-beta</div>
+      <div className={css.version}>Demo version: {demoVersion}</div>
       <div className={css.version}>SDK version: {QNIM.version}</div>
     </div>
   </div>;
