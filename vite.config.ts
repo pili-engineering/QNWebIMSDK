@@ -3,6 +3,8 @@ import reactRefresh from '@vitejs/plugin-react-refresh';
 
 const packageJson = require('./package.json');
 
+console.log('当前环境', process.env.NODE_ENV);
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [reactRefresh()],
