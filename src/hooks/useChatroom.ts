@@ -15,17 +15,20 @@ const useChatroom = (roomTokenJSON?: RoomTokenJSON | null) => {
         group_id: roomTokenJSON.roomName
       }).then(response => {
         setGroupId(response.data.im_group_id);
-        return response.data.im_group_id
+        return response.data.im_group_id;
       }).then(groupId => {
-        im.chatroomManage.join(groupId)
+        im.chatroomManage.join(groupId);
       });
     }
+  }, [roomTokenJSON, state.im]);
+
+  useEffect(() => {
     return () => {
-      if (roomTokenJSON && im) {
-        // im.chatroomManage.leave(6683356385697);
+      if (groupId && state.im) {
+        state.im.chatroomManage.leave(groupId);
       }
     };
-  }, [roomTokenJSON, state.im]);
+  }, [state.im, groupId]);
 
   return {
     group_id: groupId
