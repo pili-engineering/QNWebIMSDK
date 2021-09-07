@@ -25,6 +25,7 @@ const useChatroom = (roomTokenJSON?: RoomTokenJSON | null) => {
   useEffect(() => {
     return () => {
       if (groupId && state.im) {
+        console.log('离开聊天室');
         state.im.chatroomManage.leave(groupId);
       }
     };

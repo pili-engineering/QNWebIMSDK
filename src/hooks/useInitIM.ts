@@ -13,7 +13,7 @@ const useInitIM = () => {
     if (!state.im) {
       console.log('init');
       const initIM = QNIM.init({
-        appid: 'dxdjbunzmxiu'
+        appid: 'cigzypnhoyno'
       });
       setIsWatchIM(true);
       IM.current = initIM;

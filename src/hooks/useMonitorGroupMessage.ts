@@ -38,7 +38,7 @@ const useMonitorGroupMessage = (group_id?: number) => {
     const im = state.im;
     if (im && group_id) {
       const messages = im.groupManage.getGruopMessage(group_id);
-      console.log('getGruopMessage messages', messages);
+      console.log('getGroupMessage messages', messages);
       setMessages(messages);
     }
   }, [state.im, group_id, updateMessagesCount]);
