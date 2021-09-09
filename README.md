@@ -22,9 +22,11 @@ const config = {
 const im = QNIM.init(config);
 ```
 
-## base 基础部分
+## API
 
-### 登录
+### base 基础部分
+
+#### 登录
 
 ```ts
 im.login({
@@ -34,7 +36,7 @@ im.login({
 })
 ```
 
-### 监听
+#### 监听
 
 ```ts
 im.on('events', (ret) => {
@@ -50,7 +52,7 @@ im.on({
 
 ```
 
-### 取消监听
+#### 取消监听
 
 ```ts
 im.off('events', (ret) => {
@@ -65,7 +67,7 @@ im.off({
 })
 ```
 
-### 二维码登录
+#### 二维码登录
 
 ```ts
 im.qrlogin({
@@ -74,15 +76,15 @@ im.qrlogin({
 });
 ```
 
-### token登录
+#### token登录
 
 ```ts
 im.tokenLogin(user_id, token)
 ```
 
-## rosterManager
+### rosterManager
 
-### 获取好友id列表
+#### 获取好友id列表
 
 ```ts
 im.rosterManage.asyncGetRosterIdList().then(res => {
@@ -90,7 +92,7 @@ im.rosterManage.asyncGetRosterIdList().then(res => {
 });
 ```
 
-### 获取好友信息
+#### 获取好友信息
 
 ```ts
 im.rosterManage.asyncGetRosterInfo(state.sid).then(res => {
@@ -98,7 +100,7 @@ im.rosterManage.asyncGetRosterInfo(state.sid).then(res => {
 })
 ```
 
-### 用户注册
+#### 用户注册
 
 ```ts
 rosterManage.asyncRegester({
@@ -109,7 +111,7 @@ rosterManage.asyncRegester({
 });
 ```
 
-### 根据id列表获取用户详细信息
+#### 根据id列表获取用户详细信息
 
 ```ts
 im.rosterManage.asnycGetRosterListDetailByIds(rosterIdList).then(res => {
@@ -117,19 +119,19 @@ im.rosterManage.asnycGetRosterListDetailByIds(rosterIdList).then(res => {
 });
 ```
 
-### 根据id获取聊天信息
+#### 根据id获取聊天信息
 
 ```ts
 const rosterMessages = im.rosterManage.getRosterMessageByRid(uid);
 ```
 
-### 读取消息
+#### 读取消息
 
 ```ts
 im.rosterManage.readRosterMessage(uid);
 ```
 
-### 删除好友
+#### 删除好友
 
 ```ts
 im.rosterManage
@@ -139,43 +141,43 @@ im.rosterManage
   });
 ```
 
-### 获取缓存的所有新用户
+#### 获取缓存的所有新用户
 
 ```ts
 const userMaps = im.rosterManage.getAllRosterDetail();
 ```
 
-### 撤回消息，只能撤回5分钟内的
+#### 撤回消息，只能撤回5分钟内的
 
 ```ts
 im.rosterManage.recallMessage(user_id, message_id);
 ```
 
-### 删除消息
+#### 删除消息
 
 ```ts
 im.rosterManage.deleteMessage(user_id, message_id);
 ```
 
-### 获取用户的未读数
+#### 获取用户的未读数
 
 ```ts
 const unreadCount = im.rosterManage.getUnreadCount(user_id);
 ```
 
-### 设置消息成未读
+#### 设置消息成未读
 
 ```ts
 im.rosterManage.unreadMessage(user_id, message_id);
 ```
 
-### 获取好友信息
+#### 获取好友信息
 
 ```ts
 const roserInfo = im.rosterManage.getRosterInfo(user_id);
 ```
 
-### 获取好友申请列表
+#### 获取好友申请列表
 
 ```ts
 im.rosterManage
@@ -185,7 +187,7 @@ im.rosterManage
   });
 ```
 
-### 获取黑名单
+#### 获取黑名单
 
 ```ts
 im.rosterManage
@@ -195,7 +197,7 @@ im.rosterManage
   });
 ```
 
-### 加入黑名单
+#### 加入黑名单
 
 ```ts
 im.rosterManage
@@ -205,7 +207,7 @@ im.rosterManage
   });
 ```
 
-### 移除黑名单
+#### 移除黑名单
 
 ```ts
 im.rosterManage
@@ -215,7 +217,7 @@ im.rosterManage
   });
 ```
 
-### 请求加为好友
+#### 请求加为好友
 
 ```ts
 im.rosterManage
@@ -225,7 +227,7 @@ im.rosterManage
   });
 ```
 
-### 通过好友申请
+#### 通过好友申请
 
 ```ts
 im.rosterManage
@@ -235,7 +237,7 @@ im.rosterManage
   });
 ```
 
-### 拒绝好友申请
+#### 拒绝好友申请
 
 ```ts
 im.rosterManage
@@ -245,7 +247,7 @@ im.rosterManage
   });
 ```
 
-### 按名称搜索用户
+#### 按名称搜索用户
 
 ```ts
 im.rosterManage
@@ -255,7 +257,7 @@ im.rosterManage
   });
 ```
 
-### 按ID搜索用户
+#### 按ID搜索用户
 
 ```ts
 im.rosterManage
@@ -265,9 +267,9 @@ im.rosterManage
   });
 ```
 
-## groupManager
+### groupManager
 
-### 获取群信息
+#### 获取群信息
 
 ```ts
 im.groupManage.asyncGetGroupInfo(group_id, fromServer).then(res => {
@@ -275,7 +277,7 @@ im.groupManage.asyncGetGroupInfo(group_id, fromServer).then(res => {
 })
 ```
 
-### 获取加入的群组
+#### 获取加入的群组
 
 ```ts
 im.groupManage.asyncGetJoinedGroups().then(res => {
@@ -283,20 +285,20 @@ im.groupManage.asyncGetJoinedGroups().then(res => {
 });
 ```
 
-### 打开群组
+#### 打开群组
 
 ```ts
 // 此方法会准备群组聊天界面的一些必备信息。
 im.groupManage.openGroup(group_id);
 ```
 
-### 获取缓存的所有群组详情
+#### 获取缓存的所有群组详情
 
 ```ts
 const allGroupMap = im.groupManage.getAllGroupDetail();
 ```
 
-### 获取群组成员（异步）
+#### 获取群组成员（异步）
 
 ```ts
 im.groupManage.asyncGetGroupMembers(group_id, fromServer).then(res => {
@@ -304,13 +306,13 @@ im.groupManage.asyncGetGroupMembers(group_id, fromServer).then(res => {
 });
 ```
 
-### 获取群组成员（同步）
+#### 获取群组成员（同步）
 
 ```ts
 const members = im.groupManage.getGroupMembers(group_id);
 ```
 
-### 按id获取群组详情
+#### 按id获取群组详情
 
 ```ts
 im.groupManage.asyncGetGroupListDetail(groupIds).then(res => {
@@ -318,31 +320,31 @@ im.groupManage.asyncGetGroupListDetail(groupIds).then(res => {
 });
 ```
 
-### 获取群消息
+#### 获取群消息
 
 ```ts
 const groupMessages = rootState.im.groupManage.getGruopMessage(group_id);
 ```
 
-### 将群消息设置已读
+#### 将群消息设置已读
 
 ```ts
 im.groupManage.readGroupMessage(group_id)
 ```
 
-### 撤回消息
+#### 撤回消息
 
 ```ts
 im.groupManage.recallMessage(group_id, message_id)
 ```
 
-### 获取群未读消息数
+#### 获取群未读消息数
 
 ```ts
 const unreadCount = im.groupManage.getUnreadCount(group_id);
 ```
 
-### 获取群管理员列表
+#### 获取群管理员列表
 
 ```ts
 im.groupManage.asyncGetAdminList({ group_id }).then(res => {
@@ -350,7 +352,7 @@ im.groupManage.asyncGetAdminList({ group_id }).then(res => {
 })
 ```
 
-### 群添加管理员
+#### 群添加管理员
 
 ```ts
 im.groupManage.asyncAdminAdd({
@@ -362,7 +364,7 @@ im.groupManage.asyncAdminAdd({
   });
 ```
 
-### 移除管理员
+#### 移除管理员
 
 ```ts
 im.groupManage.asyncAdminRemove({ group_id, user_list }).then(() => {
@@ -370,7 +372,7 @@ im.groupManage.asyncAdminRemove({ group_id, user_list }).then(() => {
 });
 ```
 
-### 获取群公告详情
+#### 获取群公告详情
 
 ```ts
 im.groupManage.asyncGetAnouncementById({ announcement_id, group_id }).then(res => {
@@ -378,7 +380,7 @@ im.groupManage.asyncGetAnouncementById({ announcement_id, group_id }).then(res =
 });
 ```
 
-### 删除群公告
+#### 删除群公告
 
 ```ts
 im.groupManage
@@ -388,7 +390,7 @@ im.groupManage
   });
 ```
 
-### 添加群公告
+#### 添加群公告
 
 ```ts
 im.groupManage.asyncAnnouncementEdit({ title, content, group_id })
@@ -397,7 +399,7 @@ im.groupManage.asyncAnnouncementEdit({ title, content, group_id })
   });
 ```
 
-### 群公告列表
+#### 群公告列表
 
 ```ts
 im.groupManage.asyncGetAnnouncementList({ group_id }).then((res = []) => {
@@ -405,7 +407,7 @@ im.groupManage.asyncGetAnnouncementList({ group_id }).then((res = []) => {
 });
 ```
 
-### 创建群组
+#### 创建群组
 
 ```ts
 im.groupManage.asyncCreate({
@@ -420,7 +422,7 @@ im.groupManage.asyncCreate({
   });
 ```
 
-### 解散群组
+#### 解散群组
 
 ```ts
 im.groupManage.asyncDestroy({ group_id })
@@ -429,7 +431,7 @@ im.groupManage.asyncDestroy({ group_id })
   });
 ```
 
-### 获取群组详情
+#### 获取群组详情
 
 ```ts
 im.groupManage.asyncGetInfo({ group_id }).then(res => {
@@ -437,7 +439,7 @@ im.groupManage.asyncGetInfo({ group_id }).then(res => {
 });
 ```
 
-### 更新群头像
+#### 更新群头像
 
 ```ts
 im.groupManage.asyncUpdateAvatar({
@@ -449,7 +451,7 @@ im.groupManage.asyncUpdateAvatar({
   });
 ```
 
-### 更新群描述
+#### 更新群描述
 
 ```ts
 im.groupManage.asyncUpdateDescription({
@@ -461,7 +463,7 @@ im.groupManage.asyncUpdateDescription({
   });
 ```
 
-### 更新群名称
+#### 更新群名称
 
 ```ts
 im.groupManage.asyncUpdateName({
@@ -473,7 +475,7 @@ im.groupManage.asyncUpdateName({
   });
 ```
 
-### 获取群成员
+#### 获取群成员
 
 ```ts
 im.groupManage.asyncGetMemberList(group_id, fromServer).then(res => {
@@ -481,7 +483,7 @@ im.groupManage.asyncGetMemberList(group_id, fromServer).then(res => {
 });
 ```
 
-### 设置群消息免打扰情况
+#### 设置群消息免打扰情况
 
 ```ts
 im.groupManage.asyncGroupMsgMutemode({
@@ -493,7 +495,7 @@ im.groupManage.asyncGroupMsgMutemode({
   });
 ```
 
-### 获取群黑名单
+#### 获取群黑名单
 
 ```ts
 im.groupManage.asyncGroupBannedList({ group_id }).then(res => {
@@ -501,7 +503,7 @@ im.groupManage.asyncGroupBannedList({ group_id }).then(res => {
 });
 ```
 
-### 禁言群成员
+#### 禁言群成员
 
 ```ts
 im.groupManage.asyncGroupBab({ group_id, duration, user_list }).then(() => {
@@ -509,7 +511,7 @@ im.groupManage.asyncGroupBab({ group_id, duration, user_list }).then(() => {
 });
 ```
 
-### 解除成员
+#### 解除成员
 
 ```ts
 im.groupManage.asyncGroupUnban({ group_id, user_list }).then(() => {
@@ -517,7 +519,7 @@ im.groupManage.asyncGroupUnban({ group_id, user_list }).then(() => {
 });
 ```
 
-### 设置群成员是否可以邀请
+#### 设置群成员是否可以邀请
 
 ```ts
 im.groupManage.asyncUpdateAllowMemberInvitation({
@@ -529,7 +531,7 @@ im.groupManage.asyncUpdateAllowMemberInvitation({
   });
 ```
 
-### 设置群成员是否可以修改群信息
+#### 设置群成员是否可以修改群信息
 
 ```ts
 im.groupManage.asyncUpdateAllowMemberModify({
@@ -541,7 +543,7 @@ im.groupManage.asyncUpdateAllowMemberModify({
   });
 ```
 
-### 设置群是否开启已读模式
+#### 设置群是否开启已读模式
 
 ```ts
 im.groupManage.asyncUpdateEnableReadack({
@@ -553,7 +555,7 @@ im.groupManage.asyncUpdateEnableReadack({
   });
 ```
 
-### 设置群历史是否可见
+#### 设置群历史是否可见
 
 ```ts
 im.groupManage.asyncUpdateHistoryVisible({
@@ -565,7 +567,7 @@ im.groupManage.asyncUpdateHistoryVisible({
   });
 ```
 
-### 设置入群是否需要申请
+#### 设置入群是否需要申请
 
 ```ts
 im.groupManage.asyncUpdateRequireadminapproval({
@@ -577,7 +579,7 @@ im.groupManage.asyncUpdateRequireadminapproval({
   });
 ```
 
-### 更换群主
+#### 更换群主
 
 ```ts
 im.groupManage.asyncOwnerTransfer({
@@ -589,7 +591,7 @@ im.groupManage.asyncOwnerTransfer({
   });
 ```
 
-### 申请加入群
+#### 申请加入群
 
 ```ts
 im.groupManage.asyncApply({ group_id, reason })
@@ -598,7 +600,7 @@ im.groupManage.asyncApply({ group_id, reason })
   });
 ```
 
-### 同意/拒绝申请用户加入群
+#### 同意/拒绝申请用户加入群
 
 ```ts
 im.groupManage.asyncApplyHandle({
@@ -610,7 +612,7 @@ im.groupManage.asyncApplyHandle({
 });
 ```
 
-### 获取群黑名单
+#### 获取群黑名单
 
 ```ts
 im.groupManage.asyncGroupBockedlist({ group_id }).then(res => {
@@ -618,7 +620,7 @@ im.groupManage.asyncGroupBockedlist({ group_id }).then(res => {
 });
 ```
 
-### 将成员加入黑名单
+#### 将成员加入黑名单
 
 ```ts
 im.groupManage.asyncGroupBlock({ group_id, user_list }).then(() => {
@@ -626,7 +628,7 @@ im.groupManage.asyncGroupBlock({ group_id, user_list }).then(() => {
 });
 ```
 
-### 解除黑名单
+#### 解除黑名单
 
 ```ts
 im.groupManage.asyncGroupUnblock({ group_id, user_list })
@@ -635,7 +637,7 @@ im.groupManage.asyncGroupUnblock({ group_id, user_list })
   });
 ```
 
-### 踢出群组
+#### 踢出群组
 
 ```ts
 im.groupManage.asyncKick({ group_id, user_list }).then(() => {
@@ -643,7 +645,7 @@ im.groupManage.asyncKick({ group_id, user_list }).then(() => {
 });
 ```
 
-### 获取群邀请列表
+#### 获取群邀请列表
 
 ```ts
 this.im.groupManage.asyncGetInvitationList().then(res => {
@@ -651,14 +653,14 @@ this.im.groupManage.asyncGetInvitationList().then(res => {
 });
 ```
 
-### 邀请成员加入群
+#### 邀请成员加入群
 
 ```ts
 im.groupManage.asyncInvite({ group_id, user_list }).then(() => {
 });
 ```
 
-### 同意/拒绝群邀请
+#### 同意/拒绝群邀请
 
 ```ts
 im.groupManage.asyncInviteHandle({
@@ -670,7 +672,7 @@ im.groupManage.asyncInviteHandle({
 });
 ```
 
-### 退出群
+#### 退出群
 
 ```ts
 im.groupManage.asyncLeave({ group_id })
@@ -679,7 +681,7 @@ im.groupManage.asyncLeave({ group_id })
   });
 ```
 
-### 修改群名片
+#### 修改群名片
 
 ```ts
 im.groupManage.asyncUpdateDisplayName({
@@ -691,7 +693,7 @@ im.groupManage.asyncUpdateDisplayName({
   });
 ```
 
-### 获取群申请列表
+#### 获取群申请列表
 
 ```ts
 im.groupManage.asncGetApplicationList({ group_list }).then(rs => {
@@ -699,7 +701,7 @@ im.groupManage.asncGetApplicationList({ group_list }).then(rs => {
 });
 ```
 
-### 获取群文件
+#### 获取群文件
 
 ```ts
 im.groupManage.asyncGetFileList({ group_id }).then((res = []) => {
@@ -707,7 +709,7 @@ im.groupManage.asyncGetFileList({ group_id }).then((res = []) => {
 });
 ```
 
-### 删除群文件
+#### 删除群文件
 
 ```ts
 im.groupManage.asyncFileDelete({ file_list, group_id }).then(() => {
@@ -715,9 +717,9 @@ im.groupManage.asyncFileDelete({ file_list, group_id }).then(() => {
 });
 ```
 
-## sysManager
+### sysManager
 
-### 发送好友消息
+#### 发送好友消息
 
 ```ts
 im.sysManage.sendRosterMessage({
@@ -728,7 +730,7 @@ im.sysManage.sendRosterMessage({
 });
 ```
 
-### 发送群消息
+#### 发送群消息
 
 ```ts
 im.sysManage.sendGroupMessage({
@@ -739,7 +741,7 @@ im.sysManage.sendGroupMessage({
 });
 ```
 
-### 群发送@消息
+#### 群发送@消息
 
 ```ts
 im.sysManage.sendMentionMessage({
@@ -753,13 +755,13 @@ im.sysManage.sendMentionMessage({
 });
 ```
 
-### 发送输入状态消息
+#### 发送输入状态消息
 
 ```ts
 im.sysManage.sendInputStatusMessage(roster_id, "nothing" / "typing");
 ```
 
-### 转发消息
+#### 转发消息
 
 ```ts
 im.sysManage.forwardMessage({
@@ -769,19 +771,19 @@ im.sysManage.forwardMessage({
 });
 ```
 
-### 请求历史消息
+#### 请求历史消息
 
 ```ts
 im.sysManage.requireHistoryMessage(roster_id / group_id, mid);
 ```
 
-### 获取所有消息未读状态
+#### 获取所有消息未读状态
 
 ```ts
 const allAcks = im.sysManage.getAllMessageStatus() || {};
 ```
 
-### 获取群文件上传url
+#### 获取群文件上传url
 
 ```ts
 im.sysManage.asyncGetGroupAvatarUploadUrl({
@@ -793,7 +795,7 @@ im.sysManage.asyncGetGroupAvatarUploadUrl({
   });
 ```
 
-### 获取聊天文件上传地址
+#### 获取聊天文件上传地址
 
 ```ts
 im.sysManage.asyncGetFileUploadChatFileUrl({
@@ -806,7 +808,7 @@ im.sysManage.asyncGetFileUploadChatFileUrl({
   });
 ```
 
-### 上传文件
+#### 上传文件
 
 ```ts
 im.sysManage.asyncFileUpload({
@@ -821,31 +823,31 @@ im.sysManage.asyncFileUpload({
   })
 ```
 
-### 拼装图片路径
+#### 拼装图片路径
 
 ```ts
 const image = im.sysManage.getImage({ avatar, type = 'roster', thumbnail = true });
 ```
 
-## userManager
-### 获取登录用户的token
+### userManager
+#### 获取登录用户的token
 ```ts
 const token =  im.userManage.getToken();
 ```
-### 获取登录用户的uid
+#### 获取登录用户的uid
 ```ts
 const cuid = im.userManage.getUid();
 ```
-### 获取appid
+#### 获取appid
 ```ts
 const appid = im.userManage.getAppid();
 ```
-### 获取最近回话列表
+#### 获取最近回话列表
 ```ts
 const list = im.userManage.getConversationList();
 ```
 
-### 发送验证码
+#### 发送验证码
 
 ```ts
 im.userManage
@@ -857,7 +859,7 @@ im.userManage
   });
 ```
 
-### 发送验证码（通过图片验证码）
+#### 发送验证码（通过图片验证码）
 
 ```ts
 im.userManage
@@ -871,7 +873,7 @@ im.userManage
   });
 ```
 
-### 检查用户名是否可用
+#### 检查用户名是否可用
 
 ```ts
 im.userManage.asyncUserNameCheck(username).then(() => {
@@ -879,7 +881,7 @@ im.userManage.asyncUserNameCheck(username).then(() => {
 });
 ```
 
-### 绑定手机号-使用签名绑定
+#### 绑定手机号-使用签名绑定
 
 ```ts
 im.userManage.asyncUserMobileBindSign({
@@ -890,7 +892,7 @@ im.userManage.asyncUserMobileBindSign({
 });
 ```
 
-### 手机号验证码登录
+#### 手机号验证码登录
 
 ```ts
 im.userManage.asyncUserMobileLogin({
@@ -902,7 +904,7 @@ im.userManage.asyncUserMobileLogin({
   });
 ```
 
-### 更新手机号
+#### 更新手机号
 
 ```ts
 im.userManage
@@ -912,7 +914,7 @@ im.userManage
   });
 ```
 
-### 更新头像
+#### 更新头像
 
 ```ts
 im.userManage
@@ -924,7 +926,7 @@ im.userManage
   });
 ```
 
-### 更新昵称
+#### 更新昵称
 
 ```ts
 im.userManage.asyncUpdateNickName({ nick_name }).then(() => {
@@ -932,7 +934,7 @@ im.userManage.asyncUpdateNickName({ nick_name }).then(() => {
 });
 ```
 
-### 获取用户profile
+#### 获取用户profile
 
 ```ts
 im.userManage.asyncGetProfile(true).then(res => {
@@ -940,7 +942,7 @@ im.userManage.asyncGetProfile(true).then(res => {
 })
 ```
 
-### 更新用户profile
+#### 更新用户profile
 
 ```ts
 im.userManage.asyncUpdateProfile({
@@ -951,7 +953,7 @@ im.userManage.asyncUpdateProfile({
 })
 ```
 
-### 获取用户设置信息
+#### 获取用户设置信息
 
 ```ts
 im.userManage.asyncGetSettings().then(res => {
@@ -959,7 +961,7 @@ im.userManage.asyncGetSettings().then(res => {
 })
 ```
 
-### 修改用户设置
+#### 修改用户设置
 
 ```ts
 im.userManage
@@ -982,4 +984,46 @@ im.userManage
     //
   });
 ```
+
+### chatroomManage
+
+#### 创建聊天室
+
+```ts
+im.chatroomManage.create(name).then(() => {
+  //
+});
+```
+
+#### 加入聊天室
+
+```ts
+im.chatroomManage.join(group_id).then(() => {
+  // 
+})
+```
+
+#### 退出聊天室
+
+```ts
+im.chatroomManage.leave(group_id).then(() => {
+  // 
+})
+```
+
+#### 解散聊天室
+
+```ts
+im.chatroomManage.destroy(group_id).then(() => {
+  // 
+})
+```
+
+### 字段说明
+
+| 字段                | 类型        | 说明                                                         |
+| --- | ----| --- |
+| fromServer          | boolean     | true表示从服务器取数据， false表示从本地缓存取数据           |
+| apply_approval      | 0 \| 1 \| 2 | 入群申请审批设置。0:同意所有申请 1:需要管理员确认 2:拒绝所有申请 |
+| 禁言群成员 duration | number | 禁言时长，单位为分钟。-1 为永久禁言                     |
 

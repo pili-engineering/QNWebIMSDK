@@ -25,6 +25,7 @@ const useInitIM = () => {
       timer.current = setInterval(() => {
         const im = IM.current;
         if (im && im.isReady && im.isReady()) {
+          timer.current && clearInterval(timer.current);
           dispatch({
             type: 'setIM',
             payload: im
