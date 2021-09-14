@@ -457,10 +457,20 @@ im.groupManage.asyncUpdateAvatar({
 im.groupManage.asyncUpdateDescription({
   group_id,
   value
-})
-  .then(() => {
-    //
-  });
+}).then(() => {
+  //
+});
+```
+
+#### 更新群扩展
+
+```ts
+this.im.groupManage.asyncUpdateExt({
+  group_id,
+  value
+}).then(() => {
+  //
+});
 ```
 
 #### 更新群名称
@@ -1026,4 +1036,7 @@ im.chatroomManage.destroy(group_id).then(() => {
 | fromServer          | boolean     | true表示从服务器取数据， false表示从本地缓存取数据           |
 | apply_approval      | 0 \| 1 \| 2 | 入群申请审批设置。0:同意所有申请 1:需要管理员确认 2:拒绝所有申请 |
 | 禁言群成员 duration | number | 禁言时长，单位为分钟。-1 为永久禁言                     |
+| file_type | number | 文件类型 100: 普通聊天文件, 101: 语音聊天文件(amr格式),102: 图片聊天文件, 103: 视频聊天文件, 104: 语音聊天文件(mp3格式), 200: 普通共享文件, 201: 语音共享文件, 202: 图片共享文件, 203: 视频共享文件 |
+| to_type | number | 1: 用户，2: 群组 |
+| to_id | number | 用户ID或群ID |
 
