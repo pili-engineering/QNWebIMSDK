@@ -17,8 +17,7 @@ const useMonitorGroupMessage = (group_id?: number) => {
      * @param message
      */
     function handleGroupMessage(message: any) {
-      console.log('onGroupMessage', message);
-      setUpdateMessagesCount(updateMessagesCount + 1);
+      setUpdateMessagesCount(state =>  state + 1);
     }
 
     if (im && group_id) {
