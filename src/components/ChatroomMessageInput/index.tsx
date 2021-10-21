@@ -87,12 +87,12 @@ const ChatroomMessageInput = (props: Props) => {
         state.im.sysManage.sendGroupMessage({
           type: uploadType,
           gid: props.groupId,
-          content: {
+          content: JSON.stringify({
             action: 'pubChatText',
-            msgStr: JSON.stringify({
+            msgStr: {
               senderId: cuid, senderName: '', msgContent: text
-            })
-          },
+            }
+          }),
           attachment: fileInfo,
           ext: '自定义消息字段',
           priority: 0
@@ -144,12 +144,12 @@ const ChatroomMessageInput = (props: Props) => {
     const im = state.im;
     const cuid = im.userManage.getUid() + '';
     const message = {
-      content: {
+      content: JSON.stringify({
         action: 'pubChatText',
-        msgStr: JSON.stringify({
+        msgStr: {
           senderId: cuid, senderName: '', msgContent: text
-        })
-      },
+        }
+      }),
       gid: props.groupId
     };
     im.sysManage.sendGroupMessage(message);
