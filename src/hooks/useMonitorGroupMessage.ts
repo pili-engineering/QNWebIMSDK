@@ -2,9 +2,8 @@ import { useContext, useEffect, useState } from 'react';
 import { storeContext } from '../store';
 
 const useMonitorGroupMessage = (group_id?: number) => {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState<any[]>([]);
   const { state } = useContext(storeContext);
-  const [updateMessagesCount, setUpdateMessagesCount] = useState(1);
 
   /**
    * 监听群消息
@@ -17,7 +16,7 @@ const useMonitorGroupMessage = (group_id?: number) => {
      * @param message
      */
     function handleGroupMessage(message: any) {
-      setUpdateMessagesCount(state =>  state + 1);
+      setMessages(prevMessages => prevMessages.concat(message));
     }
 
     if (im && group_id) {
@@ -29,18 +28,6 @@ const useMonitorGroupMessage = (group_id?: number) => {
       }
     };
   }, [state, group_id]);
-
-  /**
-   * 获取群消息
-   */
-  useEffect(() => {
-    const im = state.im;
-    if (im && group_id) {
-      const messages = im.groupManage.getGruopMessage(group_id);
-      console.log('getGroupMessage messages', messages);
-      setMessages(messages);
-    }
-  }, [state.im, group_id, updateMessagesCount]);
 
   return {
     messages

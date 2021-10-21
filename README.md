@@ -2,7 +2,9 @@
 
 ## 前期准备
 
-下载对应 SDK 文件，Web 版地址为：qnweb-im.js，并在代码中引用。
+DEMO 地址：https://github.com/pili-engineering/QNWebIMSDK
+
+SDK 文件下载地址：[qnweb-im.js](https://raw.githubusercontent.com/pili-engineering/QNWebIMSDK/main/src/sdk/qnweb-im.umd.js)
 
 ## 初始化
 
