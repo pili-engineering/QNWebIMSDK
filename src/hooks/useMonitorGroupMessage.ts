@@ -16,6 +16,7 @@ const useMonitorGroupMessage = (group_id?: number) => {
      * @param message
      */
     function handleGroupMessage(message: any) {
+      console.log('message', JSON.stringify(message));
       setMessages(prevMessages => prevMessages.concat(message));
     }
 

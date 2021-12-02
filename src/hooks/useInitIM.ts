@@ -1,4 +1,5 @@
 import { useContext, useEffect, useRef, useState } from 'react';
+import * as QNIM from '../sdk/qnweb-im.esm';
 import { storeContext } from '../store';
 
 /**

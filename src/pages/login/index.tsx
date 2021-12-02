@@ -4,6 +4,7 @@ import useMonitorLogin from '../../hooks/useMonitorLogin';
 import { storeContext } from '../../store';
 import { LoginInfo } from '../../types';
 import { LoginStatus } from '../../types/store';
+import * as QNIM from '../../sdk/qnweb-im.esm';
 import css from './index.module.scss';
 
 const Login: React.FC<{}> = props => {
