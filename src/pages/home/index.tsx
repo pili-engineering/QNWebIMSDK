@@ -6,18 +6,11 @@ import css from './index.module.scss';
 const Home = () => {
   const [roomToken, setRoomToken] = useState<string>();
   const history = useHistory();
-  const [roomTokens] = useState([
-    'QxZugR8TAhI38AiJ_cptTl3RbzLyca3t-AAiH-Hh:bPnzujqVtlZwIvHEHMTwapyk2b0=:eyJhcHBJZCI6ImZsZXFmcTZ5YyIsImV4cGlyZUF0IjoxNzIwODU0MTMzLCJwZXJtaXNzaW9uIjoidXNlciIsInJvb21OYW1lIjoianNlcjEiLCJ1c2VySWQiOiJqdXNlcjEifQ==',
-    'QxZugR8TAhI38AiJ_cptTl3RbzLyca3t-AAiH-Hh:Ujga8UkLkmizpwTEq0bc95tMYIA=:eyJhcHBJZCI6ImZsZXFmcTZ5YyIsImV4cGlyZUF0IjoxNzIwODU0MTMzLCJwZXJtaXNzaW9uIjoidXNlciIsInJvb21OYW1lIjoianNlcjIiLCJ1c2VySWQiOiJqdXNlcjIifQ==',
-    'QxZugR8TAhI38AiJ_cptTl3RbzLyca3t-AAiH-Hh:MDxnzjjeBwpj92nCtsjfMXVRwtk=:eyJhcHBJZCI6ImZsZXFmcTZ5YyIsImV4cGlyZUF0IjoxNzIwODU0MTMzLCJwZXJtaXNzaW9uIjoidXNlciIsInJvb21OYW1lIjoianNlcjMiLCJ1c2VySWQiOiJqdXNlcjMifQ=='
-  ]);
   /**
    * 随机生成 roomToken
    */
   const onGenerateRoomToken = () => {
-    const index = Math.floor(Math.random() * 3);
-    const roomToken = roomTokens[index];
-    setRoomToken(roomToken);
+    window.open('https://portal.qiniu.com/rtn/app')
   };
 
   /**
@@ -50,7 +43,7 @@ const Home = () => {
         type='primary'
         block
         onClick={onGenerateRoomToken}
-      >点击随机生成roomToken</Button>
+      >点击前往生成token</Button>
     </div>
   </div>;
 };

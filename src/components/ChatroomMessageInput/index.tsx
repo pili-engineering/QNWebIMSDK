@@ -251,6 +251,7 @@ const ChatroomMessageInput = (props: Props) => {
         onEmojiClick={onEmojiClick}
         disableSearchBar={true}
         preload={true}
+        native={true}
       />
     }
   </div>;
