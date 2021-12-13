@@ -531,6 +531,31 @@ im.groupManage.asyncGroupUnban({ group_id, user_list }).then(() => {
 });
 ```
 
+#### 全员禁言
+
+```ts
+im.groupManage.asyncBanAll({group_id,duration: -1}).then(res => {
+  console.log(res)
+});
+```
+
+#### 全员取消禁言
+
+```ts
+im.groupManage.asyncUnBanAll({group_id}).then(res => {
+  console.log(res)
+});
+```
+
+#### 判断禁言状态
+
+```ts
+// 判断禁言过期时间 groupInfo.ban_expire_time
+// 如果为-1表示永久禁言， 如果将来的时间，则表示禁言中
+// 全员禁言和单用户的禁言是互不影响的
+// 只要有一个是禁言，用户的状态就是禁言
+```
+
 #### 设置群成员是否可以邀请
 
 ```ts

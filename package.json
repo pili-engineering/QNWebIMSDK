@@ -1,6 +1,6 @@
 {
   "name": "qnweb-im-demo",
-  "version": "1.0.4-beta.2",
+  "version": "1.0.4-beta.5",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
