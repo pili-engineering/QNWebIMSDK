@@ -1,6 +1,6 @@
 {
   "name": "qnweb-im-demo",
-  "version": "1.0.4-beta.5",
+  "version": "1.0.5",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -14,6 +14,7 @@
     "js-audio-recorder": "^1.0.7",
     "lamejs": "^1.2.0",
     "lodash": "^4.17.21",
+    "qnweb-im": "^1.0.5",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "react-router-dom": "^5.2.0"
